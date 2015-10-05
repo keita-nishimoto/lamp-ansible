@@ -1,0 +1,4 @@
+- name: add appuser user
+  user: name=appuser password={{appuser_pass}}
+  tags:
+    - vagrant-develop

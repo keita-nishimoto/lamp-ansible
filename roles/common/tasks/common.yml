@@ -1,0 +1,20 @@
+- name: yum update
+  yum : name=* state=latest
+  tags:
+    - vagrant-develop
+
+- name: install libselinux-python
+  yum : name=libselinux-python state=latest
+  tags:
+    - vagrant-develop
+
+#karnelのアップデートが可能なように設定を変更
+- name : set yum.conf
+  template: src=yum.conf.j2 dest=/etc/yum.conf owner=root group=root mode=600
+  tags:
+    - vagrant-develop
+
+- name: install the 'Development tools' package group
+  yum : name="@Development tools" state=present
+  tags:
+    - vagrant-develop

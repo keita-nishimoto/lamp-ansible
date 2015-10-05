@@ -1,0 +1,6 @@
+- include : common.yml
+- include : add-basic-yum-repos.yml
+- include : firewall.yml
+- include : add-user.yml
+- include : command.yml
+- include : add-basic-yum-repos.yml

@@ -1,0 +1,9 @@
+- name: install python-selinux
+  yum: pkg=libselinux-python state=latest
+  tags:
+    - vagrant-develop
+
+- name: disable selinux
+  selinux: state=disabled
+  tags:
+    - vagrant-develop

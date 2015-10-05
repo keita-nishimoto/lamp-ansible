@@ -1,0 +1,14 @@
+- name: add basic yum repositories
+  yum : name={{item}}
+  with_items:
+    - http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  tags:
+    - vagrant-develop
+
+- name: change repositories option
+  replace : dest=/etc/yum.repos.d/{{item}} regexp="enabled *= *1" replace="enabled=0"
+  with_items:
+    - epel.repo
+    - epel-testing.repo
+  tags:
+    - vagrant-develop

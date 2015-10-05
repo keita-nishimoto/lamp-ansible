@@ -1,0 +1,49 @@
+- name: add repository 'remi-repo'
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+  sudo: yes
+  tags:
+    - vagrant-develop
+
+#php56がhttpdに依存しているのでインストール
+- name: install httpd
+  yum : name=httpd state=latest
+  sudo: yes
+  tags:
+    - vagrant-develop
+
+#php56がlibtool-ltdlに依存しているのでインストール
+- name: install libtool-ltdl
+  yum : name=libtool-ltdl state=latest
+  sudo: yes
+  tags:
+    - vagrant-develop
+
+- name: install php56
+  yum : name={{item}} enablerepo=remi-php56,remi,epel state=present
+  with_items:
+    - php
+    - php-devel
+    - php-opcache
+    - php-mbstring
+    - php-pdo
+    - php-mysqlnd
+    - php-pecl-xdebug
+    - php-pecl-jsonc
+    - php-pecl-jsonc-devel
+    - php-mcrypt
+    - php-xml
+  sudo: yes
+  tags:
+    - vagrant-develop
+
+- name: change php.ini
+  template: src=php.ini.j2 dest=/etc/php.ini owner=root group=root mode=0644
+  sudo: yes
+  tags:
+    - vagrant-develop
+
+- name: change 10-opcache.ini
+  template: src=10-opcache.ini.j2 dest=/etc/php.d/10-opcache.ini owner=root group=root mode=0644
+  sudo: yes
+  tags:
+    - vagrant-develop
