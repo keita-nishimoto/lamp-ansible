@@ -32,6 +32,7 @@
     - php-pecl-jsonc-devel
     - php-mcrypt
     - php-xml
+    - php-pecl-couchbase
   sudo: yes
   tags:
     - vagrant-develop
