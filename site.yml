@@ -1,4 +1,4 @@
-- hosts: webservers
+- hosts: vagrant
   sudo: true
   roles:
     - common
