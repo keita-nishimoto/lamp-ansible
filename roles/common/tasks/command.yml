@@ -1,19 +1,8 @@
-- name: install vim
-  yum : name=vim state=latest
-  tags:
-    - vagrant-develop
-
 - name: install locate
   yum : name=mlocate state=latest
-  tags:
-    - vagrant-develop
 
 - name: install git
   yum : name=git state=latest
-  tags:
-    - vagrant-develop
 
 - name: install wget
   yum : name=wget state=latest
-  tags:
-    - vagrant-develop

@@ -1,7 +1,1 @@
-- hosts: vagrant
-  sudo: true
-  roles:
-    - common
-    - php
-    - mysql
-    - composer
+- include: webservers.yml

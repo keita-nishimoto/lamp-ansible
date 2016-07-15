@@ -1,10 +1,6 @@
-# MySQL5.6の公式リポジトリをインストール
-- name: Install Official MySQL Repository
-  yum: name={{item|quote}}
-  with_items:
-      - http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
-  tags:
-    - vagrant-develop
+# MySQL5.7の公式リポジトリをインストール
+- name: Install Official MySQL5.7 Repository
+  yum: name=http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
 
 - name: remove mysql-libs
   yum: name=mysql-libs state=absent
@@ -12,8 +8,8 @@
     - vagrant-develop
 
 # MySQL5.6をインストール
-- name: Install MySQL56
-  yum : name={{item}} enablerepo=mysql56-community,remi state=latest
+- name: Install MySQL57
+  yum : name={{ item }} enablerepo=mysql57-community state=latest
   with_items:
     - mysql-community-client
     - mysql-community-common
@@ -21,17 +17,9 @@
     - mysql-community-libs
     - mysql-community-server
   sudo: yes
-  tags:
-    - vagrant-develop
 
 - name: change my.cnf
   template: src=my.cnf.j2 dest=/etc/my.cnf owner=root group=root mode=0644
-  sudo: yes
-  tags:
-    - vagrant-develop
 
 - name: Add mysqld to StartUps on boot And Be Running
   service: enabled=yes name=mysqld state=running
-  sudo: yes
-  tags:
-    - vagrant-develop
