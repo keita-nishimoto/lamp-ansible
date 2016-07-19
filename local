@@ -1,5 +1,8 @@
 [web-servers]
 192.168.33.11
 
+[db-servers]
+192.168.33.11
+
 [all:vars]
 stage=local

@@ -1,2 +1,3 @@
-home_dir : /home/vagrant/
-user : vagrant
+document_root: /home/vagrant/wordpress
+server_name: domainname.com
+add_dir: /home/vagrant/wordpress/

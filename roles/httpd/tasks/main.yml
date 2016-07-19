@@ -1,0 +1,19 @@
+- name: Install httpd
+  yum: name={{ item }} state=latest
+  with_items:
+    - httpd
+    - httpd-devel
+    - mod_ssl
+
+- name: set ssl crt
+  template: src=domainname.crt.j2 dest=/etc/pki/tls/certs/domainname.crt owner=root group=root mode=0644
+
+- name: set ssl PrivateKey
+  template: src=domainname.key.j2 dest=/etc/pki/tls/private/domainname.key owner=root group=root mode=0644
+
+- name: set VirtualHost conf
+  template: src=domainname.conf.j2 dest=/etc/httpd/conf.d/domainname.conf owner=root group=root mode=0644
+
+- name: Add httpd to StartUps on boot And Be Running
+  service: enabled=yes name=httpd state=started
+

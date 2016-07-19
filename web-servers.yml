@@ -4,6 +4,6 @@
       - vars/{{ stage }}.yml
   roles:
     - common
-    #- php
-    #- mysql
-    #- composer
+    - httpd
+    - php
+    - composer

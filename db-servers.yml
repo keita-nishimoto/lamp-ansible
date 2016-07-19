@@ -1,0 +1,6 @@
+- hosts: db-servers
+  sudo: true
+  vars_files:
+      - vars/{{ stage }}.yml
+  roles:
+    - mysql
