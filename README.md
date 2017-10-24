@@ -1,4 +1,4 @@
-# playbook_lamp
+# lamp-vagrant
 
 ## 概要
 LAMP環境を作成する為のAnsibleのplaybookになります。
@@ -17,6 +17,6 @@ $ brew install ansible
 
 ## 使い方
 
-[こちら](https://github.com/keita-nishimoto/lamp_vagrant_provisioning) と合わせて利用して下さい。
+[こちら](https://github.com/keita-nishimoto/lamp-vagrant) と合わせて利用して下さい。
 
 ※もちろんAnsibleと合わせて単体で利用する事も可能です。
