@@ -1,4 +1,4 @@
-# lamp-vagrant
+# lamp-ansible
 
 ## 概要
 LAMP環境を作成する為のAnsibleのplaybookになります。
